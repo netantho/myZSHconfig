@@ -1,4 +1,4 @@
-# Mon zshrc
+# MyZSH
 
 # color export
 source $HOME/.zsh/colors
@@ -13,7 +13,7 @@ source $HOME/.zsh/mayenablerc
 # If not running interactively, don't do anything
 	[ -z "$PS1" ] && return
 
-# lié à l'autocomplétion
+# completion related
 
 	zstyle ':completion:*' completer _expand _complete _correct _approximate
 	zstyle ':completion:*' list-colors ''
@@ -24,26 +24,6 @@ source $HOME/.zsh/mayenablerc
 	zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 	zstyle ':completion:*' verbose false
 
-# pour qu'on repropose pas le même nom de destination pour ces commandes
-	
-	zstyle ':completion:*:rm:*' ignore-line yes
-	#zstyle ':completion:*:mv:*' ignore-line yes
-	#zstyle ':completion:*:cp:*' ignore-line yes
-
-	autoload -Uz compinit
-	compinit
-
-# lié à l'historique
-
-	HISTFILE=~/.zsh/histfile
-	HISTSIZE=10000
-	SAVEHIST=10000
-
-	setopt append_history
-	setopt share_history  # partage de l'historique
-	setopt inc_append_history
-
-# lié à l'autocompletion
 	setopt autocd
 	#setopt correctall
 	unsetopt beep
@@ -54,20 +34,39 @@ source $HOME/.zsh/mayenablerc
 	bindkey '^[OF' history-search-backward	# touche pgUp
 	bindkey '^[[5~' history-search-forward  # touche PgDn
 
-# raccourcis courant
+# fix some anoying completion and non-completion
+	
+	zstyle ':completion:*:rm:*' ignore-line yes
+	#zstyle ':completion:*:mv:*' ignore-line yes
+	#zstyle ':completion:*:cp:*' ignore-line yes
+
+	autoload -Uz compinit
+	compinit
+
+# history related
+
+	HISTFILE=~/.zsh/histfile
+	HISTSIZE=10000
+	SAVEHIST=10000
+
+	setopt append_history
+	setopt share_history  # partage de l'historique
+	setopt inc_append_history
+
+# common shorcuts
 
 	alias ls='ls -G'
 	alias ll='ls -A'
 	alias lll='ls -Alh'
 	alias back='$OLDPWD'
 
-# alias un peu plus personnel
+# a little more personal shorcut
 
 	alias search='lll | grep'
 	alias psearch='ps -ae | grep'
 	alias sl='ls'
 
-# initialise les couleurs
+# load colors
 	autoload -U colors
 	colors
 
@@ -96,7 +95,7 @@ zstyle '*:processes-names' command 'ps -e -o comm='
 zstyle '*:processes' command 'ps -au$USER'
 zstyle '*:**:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
-# et enfin le prompt
+# and eventually the prompt !
 
 	PROMPT="${fg_brown}${fg_green}%n${fg_red}@${fg_purple}%m${fg_black}[${fg_blue}%~${fg_black}]\$(prompt_git_info)
 ${fg_brown}${fg_black}[${fg_cyan}%T${fg_black}]:"
