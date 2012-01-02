@@ -97,6 +97,8 @@ zstyle '*:**:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
 # and eventually the prompt !
 
-	PROMPT="${fg_brown}${fg_green}%n${fg_red}@${fg_purple}%m${fg_black}[${fg_blue}%~${fg_black}]\$(prompt_git_info)
+setopt printeightbit
+
+	PROMPT="${fg_brown}${fg_green}%n${fg_red}@${fg_purple}io${fg_black}[${fg_blue}%~${fg_black}]\$(prompt_git_info)
 ${fg_brown}${fg_black}[${fg_cyan}%T${fg_black}]:"
 
