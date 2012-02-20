@@ -55,10 +55,17 @@ source $HOME/.zsh/mayenablerc
 
 # common shorcuts
 
-	alias ls='ls -G'
-	alias ll='ls -A'
-	alias lll='ls -Alh'
+	alias l='ls --color=auto'
+	alias ls='ls -G --color=auto'
+	alias ll='ls -A --color=auto'
+	alias lll='ls -Alh --color=auto'
 	alias back='$OLDPWD'
+
+# some colors for grep
+
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 
 # a little more personal shorcut
 
