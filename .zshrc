@@ -106,6 +106,6 @@ zstyle '*:**:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
 setopt printeightbit
 
-	PROMPT="${fg_brown}${fg_green}%n${fg_red}@${fg_purple}io${fg_black}[${fg_blue}%~${fg_black}]\$(prompt_git_info)
-${fg_brown}${fg_black}[${fg_cyan}%T${fg_black}]:"
+	PROMPT="${fg_brown}${fg_green}%n${fg_red}@${fg_purple}`hostname`${fg_white}[${fg_blue}%~${fg_white}]\$(prompt_git_info)
+${fg_brown}${fg_white}[${fg_cyan}%T${fg_white}]:"
 
