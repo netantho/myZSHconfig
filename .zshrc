@@ -102,10 +102,13 @@ zstyle '*:processes-names' command 'ps -e -o comm='
 zstyle '*:processes' command 'ps -au$USER'
 zstyle '*:**:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
+# Movement
+	bindkey ';5D' emacs-backward-word
+	bindkey ';5C' emacs-forward-word
+
 # and eventually the prompt !
 
 setopt printeightbit
 
 	PROMPT="${fg_brown}${fg_green}%n${fg_red}@${fg_purple}`hostname`${fg_white}[${fg_blue}%~${fg_white}]\$(prompt_git_info)
 ${fg_brown}${fg_white}[${fg_cyan}%T${fg_white}]:"
-
