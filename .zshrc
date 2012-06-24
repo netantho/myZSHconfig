@@ -9,7 +9,6 @@ source $HOME/.zsh/personalrc
 # default editor, rvm, macport ...
 source $HOME/.zsh/mayenablerc
 
-
 # If not running interactively, don't do anything
 	[ -z "$PS1" ] && return
 
@@ -35,7 +34,7 @@ source $HOME/.zsh/mayenablerc
 	bindkey '^[[5~' history-search-forward  # touche PgDn
 
 # fix some anoying completion and non-completion
-	
+
 	zstyle ':completion:*:rm:*' ignore-line yes
 	#zstyle ':completion:*:mv:*' ignore-line yes
 	#zstyle ':completion:*:cp:*' ignore-line yes
@@ -77,10 +76,9 @@ source $HOME/.zsh/mayenablerc
 	autoload -U colors
 	colors
 
-	
 # Allow for functions in the prompt.
 	setopt PROMPT_SUBST
- 
+
 # Autoload zsh functions.
 	fpath=(~/.zsh/functions $fpath)
 	autoload -U ~/.zsh/functions/*(:t)
@@ -89,7 +87,7 @@ source $HOME/.zsh/mayenablerc
 	typeset -ga preexec_functions
 	typeset -ga precmd_functions
 	typeset -ga chpwd_functions
- 
+
 # Append git functions needed for prompt.
 	preexec_functions+='preexec_update_git_vars'
 	precmd_functions+='precmd_update_git_vars'
@@ -110,5 +108,5 @@ zstyle '*:**:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 
 setopt printeightbit
 
-	PROMPT="${fg_brown}${fg_green}%n${fg_red}@${fg_purple}`hostname`${fg_white}[${fg_blue}%~${fg_white}]\$(prompt_git_info)
-${fg_brown}${fg_white}[${fg_cyan}%T${fg_white}]:"
+PROMPT="${fg_green}%n${fg_blue}@${fg_red}`hostname`${fg_white}[${fg_blue}%~${fg_white}]\$(prompt_git_info)${fg_brown}${fg_white}[${fg_cyan}%T${fg_white}]
+${fg_brown}%#${fg_white} "
